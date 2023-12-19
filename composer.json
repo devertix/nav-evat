@@ -1,0 +1,10 @@
+{
+    "name": "devertix/nav-evat",
+    "description": "A PHP interface for E-VAT System of Hungarian Tax Office (NAV)",
+    "license": "MIT",
+    "autoload": {
+        "psr-0" : {
+            "NavEvat" : "src"
+        }
+    }
+}
