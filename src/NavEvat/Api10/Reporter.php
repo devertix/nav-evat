@@ -79,8 +79,21 @@ class Reporter extends ReporterAbstract
         }
 
         $requestXml = new ManageDeclarationPartitionRequestXml($this->config, $declarationUploadId, $partition);
-        //print($requestXml->asXML());
-        $responseXml = $this->connector->post("/manageDeclarationPartition", $requestXml, $attachement);
+        print($requestXml->asXML());
+        /*$responseXml = $this->connector->post("/manageDeclarationPartition", $requestXml, $attachement);
+
+        return $responseXml;*/
+    }
+
+    public function manageDeclarationFinalize($declarationUploadId, $preliminaryConfirmation = false)
+    {
+        if (empty($declarationUploadId)) {
+            throw new MissingMandatoryParameterException();
+        }
+
+        $requestXml = new ManageDeclarationFinalizeRequestXml($this->config, $declarationUploadId, $preliminaryConfirmation);
+        print($requestXml->asXML());
+        $responseXml = $this->connector->post("/manageDeclarationFinalize", $requestXml);
 
         return $responseXml;
     }
