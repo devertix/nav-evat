@@ -35,7 +35,7 @@ class Reporter extends ReporterAbstract
 
     public function queryInvoiceTaxCode($invoiceNumber, $invoiceDirection, $invoiceItemLine)
     {
-        if (empty($invoiceNumber) || empty($invoiceDirection) || empty($invoiceItemLine)) {
+        if (empty($invoiceNumber) || empty($invoiceDirection) || !is_bool($invoiceItemLine)) {
             throw new MissingMandatoryParameterException();
         }
 
