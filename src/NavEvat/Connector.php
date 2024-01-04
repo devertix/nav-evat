@@ -56,9 +56,7 @@ class Connector implements ConnectorInterface {
             throw new CurlError($errno);
         }
 
-        var_dump($result);
         $responseXml = $this->parseResponse($result);
-        print($responseXml->asXML());
 
         $domXml = new \DOMDocument();
         $domXml->loadXML($responseXml->asXML());
