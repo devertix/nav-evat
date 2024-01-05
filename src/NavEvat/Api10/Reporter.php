@@ -90,4 +90,16 @@ class Reporter extends ReporterAbstract
 
         return $responseXml;
     }
+
+    public function queryDeclarationProcessingStatus($declarationProcessingId)
+    {
+        if (empty($declarationProcessingId)) {
+            throw new MissingMandatoryParameterException();
+        }
+
+        $requestXml = new QueryDeclarationProcessingStatusRequestXml($this->config, $declarationProcessingId);
+        $responseXml = $this->connector->post("/queryDeclarationProcessingStatus", $requestXml);
+
+        return $responseXml;
+    }
 }
