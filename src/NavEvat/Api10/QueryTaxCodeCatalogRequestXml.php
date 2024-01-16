@@ -12,7 +12,6 @@ class QueryTaxCodeCatalogRequestXml extends BaseRequestXml
     {
         parent::__construct("QueryTaxCodeCatalogRequest", $config);
 
-        $invoiceNumberQuery = $this->xml->addChild('invoiceNumberQuery');
-        $invoiceNumberQuery->addChild('osaApi:taxpointDate', $taxpointDate, BaseRequestXml::OSA_API_30);
+        $taxCodeCatalogQuery = $this->xml->addChild('taxpointDate', $taxpointDate);
     }
 }
