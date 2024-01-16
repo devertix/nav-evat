@@ -33,12 +33,20 @@ class Reporter extends ReporterAbstract
 
     public function queryInvoiceTaxCode($invoiceNumber, $invoiceDirection, $invoiceItemLine)
     {
-        if (empty($invoiceNumber) || empty($invoiceDirection) || empty($invoiceItemLine)) {
+        if (empty($invoiceNumber) || empty($invoiceDirection) || !is_bool($invoiceItemLine)) {
             throw new MissingMandatoryParameterException();
         }
 
         $requestXml = new QueryInvoiceTaxCodeRequestXml($this->config, $invoiceNumber, $invoiceDirection, $invoiceItemLine);
         $responseXml = $this->connector->post("/queryInvoiceTaxCode", $requestXml);
+
+        return $responseXml;
+    }
+
+    public function queryTaxCodeCatalog(string $taxpointDate)
+    {
+        $requestXml = new QueryTaxCodeCatalogRequestXml($this->config, $taxpointDate);
+        $responseXml = $this->connector->post("/queryTaxCodeCatalog", $requestXml);
 
         return $responseXml;
     }
