@@ -43,6 +43,14 @@ class Reporter extends ReporterAbstract
         return $responseXml;
     }
 
+    public function queryTaxCodeCatalog(string $taxpointDate)
+    {
+        $requestXml = new QueryTaxCodeCatalogRequestXml($this->config, $taxpointDate);
+        $responseXml = $this->connector->post("/queryTaxCodeCatalog", $requestXml);
+
+        return $responseXml;
+    }
+
     public function queryCustomsDeclarationTaxCode($cdpsId, $resolutionId, $direction)
     {
         if (empty($cdpsId) || empty($resolutionId) || empty($direction)) {
