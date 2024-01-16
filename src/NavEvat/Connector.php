@@ -56,9 +56,8 @@ class Connector implements ConnectorInterface {
             throw new CurlError($errno);
         }
 
-        var_dump($result);
         $responseXml = $this->parseResponse($result);
-        print($responseXml->asXML());
+        print $responseXml->asXML();
 
         $domXml = new \DOMDocument();
         $domXml->loadXML($responseXml->asXML());
@@ -163,7 +162,6 @@ class Connector implements ConnectorInterface {
             $data .= $file['binary_data'] . $eol;
         }
         $data .= "--" . $delimiter . "--".$eol;
-        print $data;
         return $data;
     }
 
