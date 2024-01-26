@@ -13,9 +13,6 @@ abstract class Config implements ConfigInterface
     public $baseUrl;
     public $verifySLL = false;
 
-    public $validateApiSchema = true;
-    public $validateDataSchema = true;
-
     public $curlTimeout = null;
 
     public $apiVersion = '1.0';
@@ -72,108 +69,58 @@ abstract class Config implements ConfigInterface
         $this->setVersion($apiVersion);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setBaseUrl($baseUrl)
     {
         $this->baseUrl = $baseUrl;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function useApiSchemaValidation($flag = true)
-    {
-        $this->validateApiSchema = $flag;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function useDataSchemaValidation($flag = true)
-    {
-        $this->validateDataSchema = $flag;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function setSoftware($data)
     {
         $this->software = $data;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function loadSoftware($jsonFile)
     {
         $data = $this->loadJsonFile($jsonFile);
         $this->setSoftware($data);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUser($data)
     {
         $this->user = $data;
     }
 
-
-    /**
-     * {@inheritdoc}
-     */
     public function loadUser($jsonFile)
     {
         $data = $this->loadJsonFile($jsonFile);
         $this->setUser($data);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setCurlTimeout($timeoutSeconds)
     {
         $this->curlTimeout = $timeoutSeconds;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setVersion($version)
     {
         $this->apiVersion = $version;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getVersion()
     {
         return $this->apiVersion;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setAdditionalData(array $data)
     {
         $this->additionalData = $data;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAdditionalData()
     {
         return $this->additionalData;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getVersionDir()
     {
         return str_replace('.', '_', $this->apiVersion);

@@ -39,10 +39,6 @@ class Connector implements ConnectorInterface {
         $url = $this->config->baseUrl . $url;
         $xmlString = is_string($requestXml) ? $requestXml : $requestXml->asXML();
 
-        /*if ($this->config->validateApiSchema) {
-            Xsd::validate($xmlString, $this->config->getApiXsdFilename());
-        }*/
-
         $ch = $this->getCurlHandle($url, $xmlString, $attachement);
 
         $result = curl_exec($ch);
