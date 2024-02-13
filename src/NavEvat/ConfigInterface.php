@@ -15,21 +15,6 @@ interface ConfigInterface
     public function setBaseUrl($baseUrl);
 
     /**
-     * NAV szerverrel való kommunikáció előtt ellenőrizze az XML adatot az API sémával szemben
-     *
-     * @param  boolean $flag
-     */
-    public function useApiSchemaValidation($flag = true);
-
-    /**
-     * NAV szerverrel való kommunikáció előtt ellenőrizze az XML adatot az Data sémával szemben
-     *
-     * @param  boolean $flag
-     */
-    public function useDataSchemaValidation($flag = true);
-
-
-    /**
      * @param array $data
      */
     public function setSoftware($data);
