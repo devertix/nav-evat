@@ -13,8 +13,8 @@ class QueryInvoiceTaxCodeRequestXml extends BaseRequestXml
         parent::__construct("QueryInvoiceTaxCodeRequest", $config);
 
         $invoiceNumberQuery = $this->xml->addChild('invoiceNumberQuery');
-        $invoiceNumberQuery->addChild('osaApi:invoiceNumber', $invoiceNumber, BaseRequestXml::OSA_API_30);
-        $invoiceNumberQuery->addChild('osaApi:invoiceDirection', $invoiceDirection, BaseRequestXml::OSA_API_30);
+        $invoiceNumberQuery->addChild('invoiceNumber', $invoiceNumber);
+        $invoiceNumberQuery->addChild('invoiceDirection', $invoiceDirection);
 
         $this->addQueryData(
             $this->xml,

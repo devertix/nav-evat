@@ -18,7 +18,7 @@ class BaseRequestXml extends BaseRequestXmlAbstract
 
     protected function getInitialXmlString()
     {
-        return '<?xml version="1.0" encoding="UTF-8"?><' . $this->rootName . ' xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:osaApi="' . self::OSA_API_30 . '" xmlns="http://schemas.nav.gov.hu/EAR/1.0/api"></' . $this->rootName . '>';
+        return '<?xml version="1.0" encoding="UTF-8"?><' . $this->rootName . ' xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns="http://schemas.nav.gov.hu/EAR/1.0/api"></' . $this->rootName . '>';
     }
 
     protected function addHeader()
